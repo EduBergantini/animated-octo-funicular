@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option csharp_namespace = "NowWeTalkin.Server.Grpc";
+option java_package = "br.com.prodatamobility.grpc.nowWeTalkin";
+option go_package = "prodatamobility.com.br/grpc/nowwetalkin";
+
+package operations;
+
+service CardRecharge {
+  rpc RequestRechargeUnary (CardRechargeRequest) returns (CardRechargeReply);
+  rpc RequestRechargeStream (stream CardRechargeRequest) returns (stream CardRechargeReply);
+}
+
+message CardRechargeRequest {
+  optional uint64 card_internal_serial_number = 1;
+  int32 issuer_id = 2;
+  int32 card_design_id = 3;
+  uint32 card_serial_number = 4;
+  int32 application_id = 5;
+  optional DocumentType document_type = 6;
+  optional string document_number = 7;
+  int32 recharge_value_in_cents = 8;
+  reserved 9;
+}
+
+message CardRechargeReply {
+  int32 status = 1;
+  string message = 2;
+  uint64 transaction_number = 3;
+}
+
+enum DocumentType {
+  UNKNOWN = 0;
+  RG = 1;
+  CPF = 2;
+}

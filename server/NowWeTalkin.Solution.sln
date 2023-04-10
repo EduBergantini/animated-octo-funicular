@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowWeTalkin.Server", "NowWeTalkin.Server\NowWeTalkin.Server.csproj", "{90BDD78A-65FD-483F-847F-2BC0A02A172E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NowWeTalkin.Client", "..\client\dotnet\NowWeTalkin.Client\NowWeTalkin.Client.csproj", "{6DE45D32-1C1F-43DB-9B8F-B5D5C43BF662}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90BDD78A-65FD-483F-847F-2BC0A02A172E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90BDD78A-65FD-483F-847F-2BC0A02A172E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90BDD78A-65FD-483F-847F-2BC0A02A172E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90BDD78A-65FD-483F-847F-2BC0A02A172E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE45D32-1C1F-43DB-9B8F-B5D5C43BF662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE45D32-1C1F-43DB-9B8F-B5D5C43BF662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE45D32-1C1F-43DB-9B8F-B5D5C43BF662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE45D32-1C1F-43DB-9B8F-B5D5C43BF662}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

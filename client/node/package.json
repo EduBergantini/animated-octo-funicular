@@ -1,0 +1,19 @@
+{
+  "name": "nowwetalking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "19.6.1",
+    "npm": "9.4.0"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.13"
+  }
+}

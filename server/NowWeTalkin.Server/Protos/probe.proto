@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option csharp_namespace = "NowWeTalkin.Server.Grpc";
+option java_package = "br.com.prodatamobility.grpc.nowWeTalkin";
+option go_package = "prodatamobility.com.br/grpc/nowwetalkin";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+package operations;
+
+service Probe {
+  rpc SendProbeUnary (ProbeRequest) returns (ProbeReply);
+  rpc SendProbeClientStream (stream ProbeRequest) returns (ProbeReply);
+}
+
+message ProbeRequest {
+  int32 device_id = 1;
+  double latitude = 2;
+  double longitude = 3;
+  map<int32, DeviceStatus> device_health = 4;
+  map<int64, TransactionStatus> pending_transactions = 5;
+  google.protobuf.Timestamp request_date = 6;
+}
+
+message ProbeReply {
+  int32 status = 1;
+  int64 latest_hotlist = 2;
+  google.protobuf.Timestamp register_date = 3;
+}
+
+
+enum DeviceStatus {
+  UNKNOWN = 0;
+  ACTIVE = 1;
+  INACTIVE = 2;
+}
+
+enum TransactionStatus {
+  CONFIRMED = 0;
+  CANCELLED = 1;
+}
