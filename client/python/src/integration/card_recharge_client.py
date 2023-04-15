@@ -2,15 +2,17 @@ import random
 import time
 
 import grpc
-import Protos.card_recharge_pb2_grpc as pb2_grpc
-import Protos.card_recharge_pb2 as pb2
 
-class CardRechargeClient(pb2_grpc.CardRechargeServicer):
+from src.generated.card_recharge_pb2 import CardRechargeRequest
+from src.generated.card_recharge_pb2_grpc import CardRechargeServicer, CardRechargeStub
+
+
+class CardRechargeClient(CardRechargeServicer):
     def __init__(self):
         self.host = 'localhost'
         self.port = 5240
         self.channel = grpc.insecure_channel('{}:{}'.format(self.host, self.port))
-        self.stub = pb2_grpc.CardRechargeStub(self.channel)
+        self.stub = CardRechargeStub(self.channel)
 
     def request_recharge_to_server(self):
         request_information = self.__get_fake_recharge_request()
@@ -37,7 +39,7 @@ class CardRechargeClient(pb2_grpc.CardRechargeServicer):
             'recharge_value_in_cents': random.Random().randrange(1, 5000),
         }
 
-        return pb2.CardRechargeRequest(card_internal_serial_number=message['card_internal_serial_number'],
+        return CardRechargeRequest(card_internal_serial_number=message['card_internal_serial_number'],
                             issuer_id=message['issuer_id'],
                             card_design_id=message['card_design_id'],
                             card_serial_number=message['card_serial_number'],

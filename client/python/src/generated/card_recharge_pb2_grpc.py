@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from Protos import card_recharge_pb2 as Protos_dot_card__recharge__pb2
+from . import card_recharge_pb2 as card__recharge__pb2
 
 
 class CardRechargeStub(object):
@@ -16,13 +16,13 @@ class CardRechargeStub(object):
         """
         self.RequestRechargeUnary = channel.unary_unary(
                 '/operations.CardRecharge/RequestRechargeUnary',
-                request_serializer=Protos_dot_card__recharge__pb2.CardRechargeRequest.SerializeToString,
-                response_deserializer=Protos_dot_card__recharge__pb2.CardRechargeReply.FromString,
+                request_serializer=card__recharge__pb2.CardRechargeRequest.SerializeToString,
+                response_deserializer=card__recharge__pb2.CardRechargeReply.FromString,
                 )
         self.RequestRechargeStream = channel.stream_stream(
                 '/operations.CardRecharge/RequestRechargeStream',
-                request_serializer=Protos_dot_card__recharge__pb2.CardRechargeRequest.SerializeToString,
-                response_deserializer=Protos_dot_card__recharge__pb2.CardRechargeReply.FromString,
+                request_serializer=card__recharge__pb2.CardRechargeRequest.SerializeToString,
+                response_deserializer=card__recharge__pb2.CardRechargeReply.FromString,
                 )
 
 
@@ -46,13 +46,13 @@ def add_CardRechargeServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'RequestRechargeUnary': grpc.unary_unary_rpc_method_handler(
                     servicer.RequestRechargeUnary,
-                    request_deserializer=Protos_dot_card__recharge__pb2.CardRechargeRequest.FromString,
-                    response_serializer=Protos_dot_card__recharge__pb2.CardRechargeReply.SerializeToString,
+                    request_deserializer=card__recharge__pb2.CardRechargeRequest.FromString,
+                    response_serializer=card__recharge__pb2.CardRechargeReply.SerializeToString,
             ),
             'RequestRechargeStream': grpc.stream_stream_rpc_method_handler(
                     servicer.RequestRechargeStream,
-                    request_deserializer=Protos_dot_card__recharge__pb2.CardRechargeRequest.FromString,
-                    response_serializer=Protos_dot_card__recharge__pb2.CardRechargeReply.SerializeToString,
+                    request_deserializer=card__recharge__pb2.CardRechargeRequest.FromString,
+                    response_serializer=card__recharge__pb2.CardRechargeReply.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -76,8 +76,8 @@ class CardRecharge(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/operations.CardRecharge/RequestRechargeUnary',
-            Protos_dot_card__recharge__pb2.CardRechargeRequest.SerializeToString,
-            Protos_dot_card__recharge__pb2.CardRechargeReply.FromString,
+            card__recharge__pb2.CardRechargeRequest.SerializeToString,
+            card__recharge__pb2.CardRechargeReply.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -93,7 +93,7 @@ class CardRecharge(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.stream_stream(request_iterator, target, '/operations.CardRecharge/RequestRechargeStream',
-            Protos_dot_card__recharge__pb2.CardRechargeRequest.SerializeToString,
-            Protos_dot_card__recharge__pb2.CardRechargeReply.FromString,
+            card__recharge__pb2.CardRechargeRequest.SerializeToString,
+            card__recharge__pb2.CardRechargeReply.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

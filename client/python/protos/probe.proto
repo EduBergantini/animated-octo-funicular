@@ -5,7 +5,6 @@ option java_package = "br.com.prodatamobility.grpc.nowWeTalkin";
 option go_package = "prodatamobility.com.br/grpc/nowwetalkin";
 
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/empty.proto";
 
 package operations;
 
@@ -31,9 +30,9 @@ message ProbeReply {
 
 
 enum DeviceStatus {
-  UNKNOWN = 0;
-  ACTIVE = 1;
-  INACTIVE = 2;
+  DEVICE_STATUS_UNKNOWN = 0;
+  DEVICE_STATUS_ACTIVE = 1;
+  DEVICE_STATUS_INACTIVE = 2;
 }
 
 enum TransactionStatus {
