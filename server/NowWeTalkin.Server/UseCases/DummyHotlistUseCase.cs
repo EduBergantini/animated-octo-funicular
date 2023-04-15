@@ -13,10 +13,10 @@ public class DummyHotlistUseCase
 
     private static IEnumerable<HotListRecord> FillHotlist()
     {
-        for (var i = 0; i < Random.Shared.NextInt64(1, 100000); i++)
+        for (var i = 1; i < Random.Shared.NextInt64(1, 100000); i++)
         {
             yield return new(
-                ++i,
+                i,
                 Random.Shared.Next(10, 99),
                 Random.Shared.Next(1, 9),
                 Convert.ToUInt32(Random.Shared.Next(1000, 9999)),
@@ -30,7 +30,7 @@ public class DummyHotlistUseCase
         => HotLists.Where(record => record.Index > currentIndex);
 
     public static HotListRecord? GetHotListByIndex(long currentIndex)
-        => HotLists.SingleOrDefault(record => record.Index + 1 == currentIndex);
+        => HotLists.SingleOrDefault(record => record.Index == currentIndex + 1);
 
     public static long GetLatestHotlistIndex() => HotLists.Last().Index;
 }
